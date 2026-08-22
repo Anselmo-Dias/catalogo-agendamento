@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Serviços | RAMU Cartomância</title>
+  <meta name="description" content="Catálogo de serviços da RAMU Cartomância: jogo de búzios, baralho pombogira e trabalhos espirituais, com valores e agendamento. Online e presencial em Aracaju – SE.">
+  <meta name="theme-color" content="#0d1222">
+
+  <!-- Ícones da aba e do atalho na tela inicial -->
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <!--
+    Prévia do link no WhatsApp, Instagram, TikTok e Facebook.
+    ATENÇÃO: og:image e og:url exigem endereço absoluto — trocar SEU-DOMINIO.com.br
+    pelo domínio real assim que o site estiver publicado, senão a prévia sai sem imagem.
+  -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="RAMU Cartomância">
+  <meta property="og:title" content="Catálogo de Serviços | RAMU Cartomância">
+  <meta property="og:description" content="Consultas e trabalhos espirituais com valores e agendamento. Online e presencial em Aracaju – SE.">
+  <meta property="og:url" content="https://SEU-DOMINIO.com.br/servicos/">
+  <meta property="og:image" content="https://SEU-DOMINIO.com.br/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Búzios sobre gamela de madeira. Catálogo de serviços da RAMU Cartomância.">
+  <meta name="twitter:image" content="https://SEU-DOMINIO.com.br/assets/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tokens, header e botões são compartilhados com a página Sobre mim -->
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="../assets/agenda.css">
+
+  <style>
+    /* ============================================================
+       Estilos próprios do catálogo. A base está em assets/base.css
+       ============================================================ */
+
+    /* ---------- grupos ---------- */
+    .grupo { padding-block: clamp(2.25rem, 4.5vw, 3.25rem) 0; }
+
+    .grupo:last-of-type { padding-bottom: clamp(2.75rem, 5vw, 4rem); }
+
+    .grupo-cabeca {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding-bottom: 0.85rem;
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .grupo-cabeca h2 {
+      font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      flex: none;
+    }
+
+    .grupo-nota {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--tinta-suave);
+      margin-left: auto;
+      text-align: right;
+    }
+
+    @media (max-width: 620px) {
+      .grupo-cabeca { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+      .grupo-nota { margin-left: 0; text-align: left; }
+    }
+
+    /* ---------- grade de cards ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+      gap: clamp(1.1rem, 2.2vw, 1.65rem);
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--linha);
+      border-radius: var(--raio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra-alta);
+    }
+
+    /* faixa de arte — troque por <img class="card-foto"> quando tiver fotos */
+    .card-arte {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(120% 100% at 50% 0%, var(--anil-600) 0%, var(--anil) 72%);
+      display: grid;
+      place-items: center;
+      color: var(--latao-claro);
+      border-bottom: 1px solid var(--latao);
+      overflow: hidden;
+    }
+
+    /* véu de anil: assenta fotos de temperaturas diferentes na mesma paleta */
+    .card-arte::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13, 18, 34, 0.38), rgba(13, 18, 34, 0) 58%);
+      pointer-events: none;
+    }
+
+    .card-foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .card:hover .card-foto { transform: scale(1.04); }
+
+    .card-tag {
+      position: absolute;
+      top: 0.7rem;
+      left: 0.7rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--anil);
+      background: var(--latao-claro);
+      padding: 0.25rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    .card-corpo {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1.3rem 1.35rem 1.35rem;
+    }
+
+    .card-nome {
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--tinta-suave);
+      margin-bottom: 1.15rem;
+    }
+
+    /* preços */
+    .valores {
+      list-style: none;
+      margin-top: auto;
+      margin-bottom: 1.1rem;
+      border-top: 1px solid var(--linha);
+    }
+
+    .valores li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .valores .rotulo { color: var(--tinta-suave); font-size: 0.63rem; }
+
+    .valor {
+      font-size: 1.22rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .valor-unico { justify-content: flex-start; }
+
+    .valor-unico .valor { font-size: 1.35rem; }
+
+    /* Dentro do card, o botão ocupa a largura toda */
+    .card-corpo .btn { width: 100%; padding-inline: 1rem; }
+
+    /* Ancora vinda do link na bio: nao encostar o card no topo */
+    .card { scroll-margin-top: 5rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+      .card:hover { transform: none; }
+      .card:hover .card-foto { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ilustrações do catálogo (linha, latão sobre anil) -------------------- -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <!-- marca: búzio -->
+    <symbol id="art-marca" viewBox="0 0 100 64">
+      <ellipse cx="50" cy="32" rx="47" ry="30" fill="currentColor"/>
+      <path d="M10 32 Q50 25 90 32 Q50 39 10 32 Z" fill="#0d1222" opacity="0.92"/>
+      <g stroke="#0d1222" stroke-width="1.6" opacity="0.6" stroke-linecap="round">
+        <path d="M22 27.5v-4M32 26v-4.5M42 25.2v-4.6M52 25.2v-4.6M62 25.8v-4.5M72 27.2v-4"/>
+        <path d="M22 36.5v4M32 38v4.5M42 38.8v4.6M52 38.8v4.6M62 38.2v4.5M72 36.8v4"/>
+      </g>
+    </symbol>
+
+    <!-- ícones de ação -->
+    <symbol id="ico-agenda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>
+    </symbol>
+    <symbol id="ico-whats" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 20.5 4.9 16A8.4 8.4 0 1 1 8 19.1l-4.5 1.4Z"/>
+      <path d="M9 9.2c.2 1.6 1.4 3.4 2.9 4.5 1 .7 2 1.1 2.6 1.2.5.1 1-.3 1.2-.8.1-.4-.1-.8-.5-1l-1-.6c-.3-.2-.7-.1-.9.2l-.3.4a5.6 5.6 0 0 1-2.4-2.4l.4-.3c.3-.2.4-.6.2-.9l-.6-1c-.2-.4-.6-.6-1-.5-.5.2-.9.7-.6 1.2Z"/>
+    </symbol>
+  </svg>
+
+  <!-- Barra de identidade + abas -------------------------------------------- -->
+  <div class="barra">
+    <div class="env">
+      <a class="marca" href="../index.html" aria-label="RAMU Cartomância — início">
+        <span class="marca-selo"><img src="../assets/foto-lucy.jpeg" alt="" width="34" height="34"></span>
+        <span class="marca-nome"><b>RAMU</b><small>Cartomância</small></span>
+      </a>
+      <nav class="abas" aria-label="Seções">
+        <a class="aba" href="index.html" aria-current="page">Serviços</a>
+        <a class="aba" href="sobre.html">Sobre mim</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- Consultas ---------------------------------------------------------- -->
+    <section class="grupo">
+      <div class="env">
+        <div class="grupo-cabeca">
+          <h2>Consultas</h2>
+          <p class="grupo-nota">Valores por atendimento</p>
+        </div>
+
+        <div class="cards">
+          <article class="card" id="servico-pombogira">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/pombogira.webp" width="900" height="506"
+                   alt="Baralho de pombogira aberto em leque sobre a mesa, ao lado de uma vela vermelha.">
+              <span class="card-tag">Leitura de cartas</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Baralho Pombogira</h3>
+              <p class="card-desc">Leitura para esclarecer dúvidas sobre amor, vida financeira, família, caminhos profissionais e decisões importantes.</p>
+              <ul class="valores">
+                <li><span class="rotulo">Online</span><span class="valor">R$ 207</span></li>
+                <li><span class="rotulo">Presencial</span><span class="valor">R$ 257</span></li>
+              </ul>
+              <button class="btn btn-cheio" data-escolha="pombogira">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-agenda"/></svg>
+                Ver horários
+              </button>
+            </div>
+          </article>
+
+          <article class="card" id="servico-buzios">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/buzios.webp" width="900" height="506"
+                   alt="Búzios lançados sobre uma gamela de madeira entalhada.">
+              <span class="card-tag">Jogo tradicional</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Jogo de Búzios</h3>
+              <p class="card-desc">Consulta tradicional de orientação e direcionamento, conduzida conforme a tradição do atendimento.</p>
+              <ul class="valores">
+                <li><span class="rotulo">Online</span><span class="valor">R$ 200</span></li>
+                <li><span class="rotulo">Presencial</span><span class="valor">R$ 250</span></li>
+              </ul>
+              <button class="btn btn-cheio" data-escolha="buzios">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-agenda"/></svg>
+                Ver horários
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trabalhos espirituais ----------------------------------------------- -->
+    <section class="grupo">
+      <div class="env">
+        <div class="grupo-cabeca">
+          <h2>Trabalhos espirituais</h2>
+          <p class="grupo-nota">Valores por trabalho</p>
+        </div>
+
+        <div class="cards">
+          <article class="card" id="servico-blindagem">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/blindagem.webp" width="900" height="506" loading="lazy"
+                   alt="Silhueta em meditação diante de um círculo de luz dourada.">
+              <span class="card-tag">Proteção</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Blindagem Espiritual</h3>
+              <p class="card-desc">Proteção e fortalecimento energético. Individual ou para casal.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 120</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Blindagem%20Espiritual." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Contratar
+              </a>
+            </div>
+          </article>
+
+          <article class="card" id="servico-adocamento-simples">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/adocamento-simples.webp" width="900" height="506" loading="lazy"
+                   alt="Pote de vidro com pétalas de rosa e etiqueta escrita amor, respeito e carinho, entre velas acesas.">
+              <span class="card-tag">Afetivo</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Adoçamento Simples</h3>
+              <p class="card-desc">Trabalho voltado ao fortalecimento de vínculos afetivos.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 150</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Ado%C3%A7amento%20Simples." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Contratar
+              </a>
+            </div>
+          </article>
+
+          <article class="card" id="servico-vira-pensamento">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/vira-pensamento.webp" width="900" height="506" loading="lazy"
+                   alt="Caderno com um pedido escrito à mão, ao lado de uma vela roxa acesa.">
+              <span class="card-tag">Afetivo</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Vira Pensamento</h3>
+              <p class="card-desc">Realizado com a intenção de favorecer a lembrança e a aproximação emocional.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 200</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Vira%20Pensamento." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Contratar
+              </a>
+            </div>
+          </article>
+
+          <article class="card" id="servico-adocamento-casal">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/adocamento-casal.webp" width="900" height="506" loading="lazy"
+                   alt="Estatueta de um casal abraçado sobre pétalas de rosa, entre velas acesas.">
+              <span class="card-tag">Afetivo</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Adoçamento de Casal</h3>
+              <p class="card-desc">Voltado ao fortalecimento da união e da harmonia entre o casal.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 350</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Ado%C3%A7amento%20de%20Casal." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Contratar
+              </a>
+            </div>
+          </article>
+
+          <article class="card" id="servico-quebra-demanda">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/quebra-demanda.webp" width="900" height="506" loading="lazy"
+                   alt="Pedra partida ao meio, cercada por corrente e sal grosso, sobre bandeja de latão.">
+              <span class="card-tag">Limpeza</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Quebra de Demanda</h3>
+              <p class="card-desc">Limpeza e fortalecimento energético segundo a tradição espiritual.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 777</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Quebra%20de%20Demanda." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Contratar
+              </a>
+            </div>
+          </article>
+
+          <article class="card" id="servico-quebra-rival">
+            <div class="card-arte">
+              <img class="card-foto" src="../assets/cards/quebra-rival.webp" width="900" height="506" loading="lazy"
+                   alt="Vela preta com selo de punhal e coração, ao lado de defumador e imagem de pombogira.">
+              <span class="card-tag">Afetivo</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Quebra de Rival</h3>
+              <p class="card-desc">Trabalho voltado às questões afetivas, conforme a tradição do atendimento.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 1.500</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Quebra%20de%20Rival." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Contratar
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/agenda.js" defer></script>
+
+  <!-- Dados estruturados: ajuda o Google a exibir serviços e preços -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Catálogo de serviços — RAMU Cartomância",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Baralho Pombogira (online)", "price": "207.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Baralho Pombogira (presencial)", "price": "257.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Jogo de Búzios (online)", "price": "200.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Jogo de Búzios (presencial)", "price": "250.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Blindagem Espiritual", "price": "120.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Adoçamento Simples", "price": "150.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Vira Pensamento", "price": "200.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Adoçamento de Casal", "price": "350.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Quebra de Demanda", "price": "777.00", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Quebra de Rival", "price": "1500.00", "priceCurrency": "BRL" }
+    ]
+  }
+  </script>
+
+</body>
+</html>

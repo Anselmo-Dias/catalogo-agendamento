@@ -1,0 +1,260 @@
+/* ==========================================================================
+   RAMU Cartomância — base compartilhada
+   Usada pelo catálogo (index.html) e pela página Sobre mim (sobre.html).
+   Anil (pano) · Marfim (búzio) · Latão (guia) · Tipografia: Poppins
+   ========================================================================== */
+
+:root {
+  --anil: #0d1222;
+  --anil-700: #1c2542;
+  --anil-600: #26315a;
+  --marfim: #f4efe4;
+  --latao: #9a7b3f;
+  --latao-claro: #c9ab6d;
+  --urucum: #a83c29;
+  --tinta: #1a2036;
+  --tinta-suave: #565e79;
+  --texto-escuro: #e9e2d3;
+  --texto-escuro-suave: #a9b0c4;
+  --linha: rgba(26, 32, 54, 0.11);
+  --linha-latao: rgba(154, 123, 63, 0.3);
+  --raio: 10px;
+  --largura: 1140px;
+  --sombra: 0 1px 2px rgba(13, 18, 34, 0.04), 0 8px 24px rgba(13, 18, 34, 0.06);
+  --sombra-alta: 0 2px 4px rgba(13, 18, 34, 0.05), 0 16px 40px rgba(13, 18, 34, 0.12);
+  --suave: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--marfim);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+svg { display: block; }
+
+.env {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+:focus-visible {
+  outline: 2px solid var(--latao);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.rotulo {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------- barra de identidade + abas ---------- */
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(13, 18, 34, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--linha-latao);
+  color: var(--texto-escuro);
+}
+
+.barra .env {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 62px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.marca-selo {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border: 1px solid var(--linha-latao);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--marfim);
+  transition: border-color 0.3s var(--suave);
+}
+
+.marca-selo svg { width: 19px; }
+
+/* Selo com foto: preenche o circulo inteiro */
+.marca-selo { overflow: hidden; }
+
+.marca-selo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.marca:hover .marca-selo { border-color: var(--latao-claro); }
+
+.marca-nome { display: grid; line-height: 1.05; }
+
+.marca-nome b {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.marca-nome small {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--latao-claro);
+  margin-top: 3px;
+}
+
+.abas { display: flex; gap: clamp(1.1rem, 3vw, 2rem); }
+
+.aba {
+  position: relative;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--texto-escuro-suave);
+  text-decoration: none;
+  transition: color 0.25s var(--suave);
+}
+
+.aba::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--latao-claro);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--suave);
+}
+
+.aba:hover { color: var(--marfim); }
+.aba:hover::after { transform: scaleX(1); }
+
+.aba[aria-current="page"] { color: var(--marfim); }
+.aba[aria-current="page"]::after { transform: scaleX(1); }
+
+/* ---------- faixa de título da página ---------- */
+.titulo-pagina {
+  background: var(--anil);
+  color: var(--texto-escuro);
+  border-bottom: 1px solid var(--latao);
+}
+
+.titulo-pagina .env { padding-block: clamp(2rem, 4.5vw, 3rem); }
+
+.titulo-pagina .rotulo { color: var(--latao-claro); margin-bottom: 0.4rem; }
+
+.titulo-pagina h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.titulo-pagina p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--texto-escuro-suave);
+  margin-top: 0.45rem;
+  max-width: 56ch;
+}
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.4rem;
+  min-height: 46px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.22s, color 0.22s, border-color 0.22s;
+}
+
+.btn-cheio {
+  background: var(--anil-700);
+  color: var(--marfim);
+  border-color: var(--anil-700);
+}
+
+.btn-cheio:hover { background: var(--urucum); border-color: var(--urucum); }
+
+.btn-vazado {
+  background: transparent;
+  color: var(--tinta);
+  border-color: rgba(26, 32, 54, 0.2);
+}
+
+.btn-vazado:hover {
+  border-color: var(--anil-700);
+  background: var(--anil-700);
+  color: var(--marfim);
+}
+
+/* Sobre fundo anil */
+.btn-claro {
+  background: var(--latao-claro);
+  color: var(--anil);
+  border-color: var(--latao-claro);
+}
+
+.btn-claro:hover { background: var(--marfim); border-color: var(--marfim); }
+
+.btn-fantasma {
+  background: transparent;
+  color: var(--texto-escuro);
+  border-color: rgba(233, 226, 211, 0.28);
+}
+
+.btn-fantasma:hover { border-color: var(--latao-claro); color: var(--latao-claro); }
+
+/* ---------- revelação ao rolar ---------- */
+.revela {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.75s var(--suave), transform 0.75s var(--suave);
+  transition-delay: var(--atraso, 0ms);
+}
+
+.revela.entrou { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .revela { opacity: 1; transform: none; }
+}

@@ -1,0 +1,135 @@
+/* ==========================================================================
+   RAMU Cartomância — escolha de modalidade (modal do agendamento)
+   Compartilhada pelo catálogo e pelo link na bio. O markup é criado por
+   assets/agenda.js, então esta folha é autocontida: não usa os tokens de
+   nenhuma das duas páginas.
+   ========================================================================== */
+
+/* ---------- escolha de modalidade ---------- */
+.escolha {
+  width: min(420px, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  /* O reset global zera margin em *, o que anula o margin:auto do agente
+     de usuario e joga o dialogo para o canto. Recentraliza aqui. */
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: #f4efe4;
+  color: #1a2036;
+  box-shadow: 0 24px 60px rgba(13, 18, 34, 0.4);
+  overflow: hidden;
+}
+
+.escolha::backdrop {
+  background: rgba(13, 18, 34, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.escolha-cabeca {
+  position: relative;
+  background: #0d1222;
+  color: #e9e2d3;
+  padding: 1.15rem 3.25rem 1.25rem 1.35rem;
+  border-bottom: 1px solid #9a7b3f;
+}
+
+.escolha-cabeca .rotulo {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9ab6d;
+}
+
+.escolha-cabeca h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.escolha-fechar {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid rgba(233, 226, 211, 0.25);
+  border-radius: 50%;
+  color: #a9b0c4;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.escolha-fechar:hover { color: #f4efe4; border-color: #c9ab6d; }
+
+.escolha-opcao {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(26, 32, 54, 0.11);
+  padding: 1.05rem 1.35rem;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.18s;
+}
+
+.escolha-opcao:last-child { border-bottom: none; }
+
+.escolha-opcao:hover { background: rgba(26, 32, 54, 0.05); }
+
+.escolha-linha {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.escolha-modo {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.escolha-preco {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.escolha-detalhe {
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: #565e79;
+  margin-top: 0.15rem;
+}
+
+.escolha[open] {
+  display: flex;
+  flex-direction: column;
+  animation: escolha-subir 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Cabeca fixa, lista de opcoes rolavel em telas baixas */
+.escolha-cabeca { flex: none; }
+
+.escolha-opcoes { overflow-y: auto; }
+
+@keyframes escolha-subir {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .escolha[open] { animation: none; }
+}
