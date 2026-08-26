@@ -99,10 +99,10 @@
       box-shadow: var(--sombra-alta);
     }
 
-    /* faixa de arte — troque por <img class="card-foto"> quando tiver fotos */
+    /* faixa de arte — 4:5 porque as fotos do atendimento são verticais */
     .card-arte {
       position: relative;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 5;
       background:
         radial-gradient(120% 100% at 50% 0%, var(--anil-600) 0%, var(--anil) 72%);
       display: grid;
@@ -131,19 +131,17 @@
 
     .card:hover .card-foto { transform: scale(1.04); }
 
-    .card-tag {
-      position: absolute;
-      top: 0.7rem;
-      left: 0.7rem;
-      font-size: 0.6rem;
+    /* Pergunta Avulsa: interrogação em latão no lugar da arte */
+    .card-marca {
+      font-size: clamp(3.4rem, 9vw, 4.6rem);
       font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--anil);
-      background: var(--latao-claro);
-      padding: 0.25rem 0.55rem;
-      border-radius: 3px;
+      line-height: 1;
+      color: var(--latao-claro);
+      opacity: 0.92;
+      transition: transform 0.45s ease;
     }
+
+    .card:hover .card-marca { transform: scale(1.04); }
 
     .card-corpo {
       display: flex;
@@ -207,6 +205,7 @@
       *, *::before, *::after { transition-duration: 0.01ms !important; }
       .card:hover { transform: none; }
       .card:hover .card-foto { transform: none; }
+      .card:hover .card-marca { transform: none; }
     }
   </style>
 </head>
@@ -262,7 +261,6 @@
             <div class="card-arte">
               <img class="card-foto" src="../assets/cards/pombogira.webp" width="900" height="506"
                    alt="Baralho de pombogira aberto em leque sobre a mesa, ao lado de uma vela vermelha.">
-              <span class="card-tag">Leitura de cartas</span>
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Baralho Pombogira</h3>
@@ -280,9 +278,8 @@
 
           <article class="card" id="servico-buzios">
             <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/buzios.webp" width="900" height="506"
-                   alt="Búzios lançados sobre uma gamela de madeira entalhada.">
-              <span class="card-tag">Jogo tradicional</span>
+              <img class="card-foto" src="../assets/cards/buzios.jpeg" width="1080" height="1489"
+                   alt="Búzios lançados sobre gamela de madeira entalhada, ao lado de um colar de contas com búzio.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Jogo de Búzios</h3>
@@ -295,6 +292,23 @@
                 <svg width="16" height="16" aria-hidden="true"><use href="#ico-agenda"/></svg>
                 Ver horários
               </button>
+            </div>
+          </article>
+
+          <article class="card" id="servico-pergunta-avulsa">
+            <div class="card-arte">
+              <span class="card-marca" aria-hidden="true">?</span>
+            </div>
+            <div class="card-corpo">
+              <h3 class="card-nome">Pergunta Avulsa</h3>
+              <p class="card-desc">Para quem tem só uma dúvida pontual e não precisa do jogo completo: uma pergunta, uma resposta direta.</p>
+              <ul class="valores">
+                <li class="valor-unico"><span class="valor">R$ 20</span></li>
+              </ul>
+              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Quero%20fazer%20uma%20Pergunta%20Avulsa%20(R%24%2020)." target="_blank" rel="noopener">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
+                Fazer minha pergunta
+              </a>
             </div>
           </article>
         </div>
@@ -312,9 +326,8 @@
         <div class="cards">
           <article class="card" id="servico-blindagem">
             <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/blindagem.webp" width="900" height="506" loading="lazy"
-                   alt="Silhueta em meditação diante de um círculo de luz dourada.">
-              <span class="card-tag">Proteção</span>
+              <img class="card-foto" src="../assets/cards/blindagem-casal.jpeg" width="1200" height="1600" loading="lazy"
+                   alt="Duas velas vermelhas atadas com fita, fincadas num disco de madeira com sal grosso, alho e ervas.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Blindagem Espiritual</h3>
@@ -331,9 +344,8 @@
 
           <article class="card" id="servico-adocamento-simples">
             <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/adocamento-simples.webp" width="900" height="506" loading="lazy"
-                   alt="Pote de vidro com pétalas de rosa e etiqueta escrita amor, respeito e carinho, entre velas acesas.">
-              <span class="card-tag">Afetivo</span>
+              <img class="card-foto" src="../assets/cards/adocamento-simples.jpeg" width="1200" height="1600" loading="lazy"
+                   alt="Vela rosa acesa numa cumbuca de vidro com ervas, diante da imagem de uma pombogira.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Adoçamento Simples</h3>
@@ -350,9 +362,8 @@
 
           <article class="card" id="servico-vira-pensamento">
             <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/vira-pensamento.webp" width="900" height="506" loading="lazy"
-                   alt="Caderno com um pedido escrito à mão, ao lado de uma vela roxa acesa.">
-              <span class="card-tag">Afetivo</span>
+              <img class="card-foto" src="../assets/cards/vira-pensamento.jpeg" width="960" height="1280" loading="lazy"
+                   alt="Cabeça modelada em cera sobre gamela de barro com sal rosa e ervas, com uma vela acesa no topo.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Vira Pensamento</h3>
@@ -369,9 +380,8 @@
 
           <article class="card" id="servico-adocamento-casal">
             <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/adocamento-casal.webp" width="900" height="506" loading="lazy"
-                   alt="Estatueta de um casal abraçado sobre pétalas de rosa, entre velas acesas.">
-              <span class="card-tag">Afetivo</span>
+              <img class="card-foto" src="../assets/cards/adocamento-reconciliacao-casal.jpeg" width="960" height="1280" loading="lazy"
+                   alt="Duas bonecas de pano atadas entre rosas vermelhas, cercadas por velas vermelhas acesas.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Adoçamento de Casal</h3>
@@ -388,9 +398,8 @@
 
           <article class="card" id="servico-quebra-demanda">
             <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/quebra-demanda.webp" width="900" height="506" loading="lazy"
-                   alt="Pedra partida ao meio, cercada por corrente e sal grosso, sobre bandeja de latão.">
-              <span class="card-tag">Limpeza</span>
+              <img class="card-foto" src="../assets/cards/quebra-demanda-perseguicao.jpeg" width="960" height="1280" loading="lazy"
+                   alt="Gamela de barro com oferenda de firmeza e vela preta acesa, ao lado de asas escuras.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Quebra de Demanda</h3>
@@ -409,7 +418,6 @@
             <div class="card-arte">
               <img class="card-foto" src="../assets/cards/quebra-rival.webp" width="900" height="506" loading="lazy"
                    alt="Vela preta com selo de punhal e coração, ao lado de defumador e imagem de pombogira.">
-              <span class="card-tag">Afetivo</span>
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Quebra de Rival</h3>
@@ -437,6 +445,7 @@
     "@type": "OfferCatalog",
     "name": "Catálogo de serviços — RAMU Cartomância",
     "itemListElement": [
+      { "@type": "Offer", "name": "Pergunta Avulsa", "price": "20.00", "priceCurrency": "BRL" },
       { "@type": "Offer", "name": "Baralho Pombogira (online)", "price": "207.00", "priceCurrency": "BRL" },
       { "@type": "Offer", "name": "Baralho Pombogira (presencial)", "price": "257.00", "priceCurrency": "BRL" },
       { "@type": "Offer", "name": "Jogo de Búzios (online)", "price": "200.00", "priceCurrency": "BRL" },
