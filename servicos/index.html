@@ -130,18 +130,6 @@
 
     .card:hover .card-foto { transform: scale(1.04); }
 
-    /* Pergunta Avulsa: interrogação em latão no lugar da arte */
-    .card-marca {
-      font-size: clamp(3.4rem, 9vw, 4.6rem);
-      font-weight: 600;
-      line-height: 1;
-      color: var(--latao-claro);
-      opacity: 0.92;
-      transition: transform 0.45s ease;
-    }
-
-    .card:hover .card-marca { transform: scale(1.04); }
-
     .card-corpo {
       display: flex;
       flex-direction: column;
@@ -204,7 +192,6 @@
       *, *::before, *::after { transition-duration: 0.01ms !important; }
       .card:hover { transform: none; }
       .card:hover .card-foto { transform: none; }
-      .card:hover .card-marca { transform: none; }
     }
   </style>
 </head>
@@ -296,7 +283,8 @@
 
           <article class="card" id="servico-pergunta-avulsa">
             <div class="card-arte">
-              <span class="card-marca" aria-hidden="true">?</span>
+              <img class="card-foto" src="../assets/cards/pergunta-avulsa.jpeg" width="1200" height="1600" loading="lazy"
+                   alt="Baralho cigano em leque sobre a mesa de madeira, com três cartas abertas, búzios e alguidar ao lado.">
             </div>
             <div class="card-corpo">
               <h3 class="card-nome">Pergunta Avulsa</h3>
@@ -412,24 +400,6 @@
               </a>
             </div>
           </article>
-
-          <article class="card" id="servico-quebra-rival">
-            <div class="card-arte">
-              <img class="card-foto" src="../assets/cards/quebra-rival.webp" width="900" height="506" loading="lazy"
-                   alt="Vela preta com selo de punhal e coração, ao lado de defumador e imagem de pombogira.">
-            </div>
-            <div class="card-corpo">
-              <h3 class="card-nome">Quebra de Rival</h3>
-              <p class="card-desc">Trabalho voltado às questões afetivas, conforme a tradição do atendimento.</p>
-              <ul class="valores">
-                <li class="valor-unico"><span class="valor">R$ 1.500</span></li>
-              </ul>
-              <a class="btn btn-vazado" href="https://wa.me/5579999171874?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Quebra%20de%20Rival." target="_blank" rel="noopener">
-                <svg width="16" height="16" aria-hidden="true"><use href="#ico-whats"/></svg>
-                Contratar
-              </a>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -453,8 +423,7 @@
       { "@type": "Offer", "name": "Adoçamento Simples", "price": "150.00", "priceCurrency": "BRL" },
       { "@type": "Offer", "name": "Vira Pensamento", "price": "200.00", "priceCurrency": "BRL" },
       { "@type": "Offer", "name": "Adoçamento de Casal", "price": "350.00", "priceCurrency": "BRL" },
-      { "@type": "Offer", "name": "Quebra de Demanda", "price": "777.00", "priceCurrency": "BRL" },
-      { "@type": "Offer", "name": "Quebra de Rival", "price": "1500.00", "priceCurrency": "BRL" }
+      { "@type": "Offer", "name": "Quebra de Demanda", "price": "777.00", "priceCurrency": "BRL" }
     ]
   }
   </script>
