@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre mim | RAMU Cartomância</title>
   <meta name="description" content="Quem é Ramu: cartomante e Yalorisá em Aracaju – SE. Como começou a atender, como conduz as consultas e o que diz quem já foi atendido.">
-  <meta name="theme-color" content="#0d1222">
+  <meta name="theme-color" content="#2d0b15">
 
   <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -48,11 +48,11 @@
       position: relative;
       aspect-ratio: 4 / 5;
       border-radius: var(--raio);
-      border: 1px solid var(--linha-latao);
+      border: 1px solid var(--linha-vinho);
       overflow: hidden;
       display: grid;
       place-items: center;
-      background: radial-gradient(120% 90% at 50% 0%, var(--anil-600) 0%, var(--anil) 70%);
+      background: radial-gradient(120% 90% at 50% 0%, var(--vinho-600) 0%, var(--vinho) 70%);
     }
 
     /* marca d'água enquanto não há foto */
@@ -97,7 +97,7 @@
     .citacao {
       margin: clamp(1.75rem, 3.5vw, 2.5rem) 0;
       padding-left: clamp(1.1rem, 2vw, 1.5rem);
-      border-left: 2px solid var(--latao);
+      border-left: 2px solid var(--vinho-600);
       font-size: clamp(1.1rem, 2.3vw, 1.35rem);
       font-weight: 400;
       line-height: 1.45;
@@ -237,7 +237,7 @@
 
     .vozes-trilho.arrastando .voz { cursor: grabbing; }
 
-    .voz:hover { box-shadow: var(--sombra-alta); border-color: var(--linha-latao); }
+    .voz:hover { box-shadow: var(--sombra-alta); border-color: var(--linha-vinho); }
 
     .voz img {
       display: block;
@@ -274,7 +274,7 @@
       transition: border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
     }
 
-    .vozes-seta:hover:not(:disabled) { border-color: var(--latao); color: var(--latao); }
+    .vozes-seta:hover:not(:disabled) { border-color: var(--vinho-600); color: var(--vinho-600); }
 
     .vozes-seta:disabled { opacity: 0.3; cursor: default; }
 
@@ -294,10 +294,10 @@
       transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    .vozes-ponto[aria-current="true"] { background: var(--latao); transform: scale(1.35); }
+    .vozes-ponto[aria-current="true"] { background: var(--vinho-600); transform: scale(1.35); }
 
     /* ---------- fecho ---------- */
-    .fecho { background: var(--anil); color: var(--texto-escuro); border-top: 1px solid var(--latao); }
+    .fecho { background: linear-gradient(160deg, var(--vinho-700) 0%, var(--vinho) 62%); color: var(--texto-escuro); border-top: 1px solid var(--vinho-500); }
 
     .fecho .env {
       padding-block: clamp(2.75rem, 5.5vw, 4.25rem);
@@ -330,8 +330,8 @@
   <svg width="0" height="0" aria-hidden="true" style="position:absolute">
     <symbol id="art-marca" viewBox="0 0 100 64">
       <ellipse cx="50" cy="32" rx="47" ry="30" fill="currentColor"/>
-      <path d="M10 32 Q50 25 90 32 Q50 39 10 32 Z" fill="#0d1222" opacity="0.92"/>
-      <g stroke="#0d1222" stroke-width="1.6" opacity="0.6" stroke-linecap="round">
+      <path d="M10 32 Q50 25 90 32 Q50 39 10 32 Z" fill="#2d0b15" opacity="0.92"/>
+      <g stroke="#2d0b15" stroke-width="1.6" opacity="0.6" stroke-linecap="round">
         <path d="M22 27.5v-4M32 26v-4.5M42 25.2v-4.6M52 25.2v-4.6M62 25.8v-4.5M72 27.2v-4"/>
         <path d="M22 36.5v4M32 38v4.5M42 38.8v4.6M52 38.8v4.6M62 38.2v4.5M72 36.8v4"/>
       </g>

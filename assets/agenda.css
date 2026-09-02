@@ -17,22 +17,22 @@
   border-radius: 10px;
   background: #f4efe4;
   color: #1a2036;
-  box-shadow: 0 24px 60px rgba(13, 18, 34, 0.4);
+  box-shadow: 0 24px 60px rgba(45, 11, 21, 0.4);
   overflow: hidden;
 }
 
 .escolha::backdrop {
-  background: rgba(13, 18, 34, 0.72);
+  background: rgba(45, 11, 21, 0.72);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 }
 
 .escolha-cabeca {
   position: relative;
-  background: #0d1222;
-  color: #e9e2d3;
+  background: linear-gradient(160deg, #6b1224 0%, #2d0b15 68%);
+  color: #f4e6e6;
   padding: 1.15rem 3.25rem 1.25rem 1.35rem;
-  border-bottom: 1px solid #9a7b3f;
+  border-bottom: 1px solid #b23148;
 }
 
 .escolha-cabeca .rotulo {
@@ -42,7 +42,7 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #c9ab6d;
+  color: #e79cab;
 }
 
 .escolha-cabeca h2 {
@@ -63,12 +63,12 @@
   background: transparent;
   border: 1px solid rgba(233, 226, 211, 0.25);
   border-radius: 50%;
-  color: #a9b0c4;
+  color: #c9aeb4;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s;
 }
 
-.escolha-fechar:hover { color: #f4efe4; border-color: #c9ab6d; }
+.escolha-fechar:hover { color: #f4efe4; border-color: #e79cab; }
 
 .escolha-opcao {
   display: block;
@@ -86,7 +86,7 @@
 
 .escolha-opcao:last-child { border-bottom: none; }
 
-.escolha-opcao:hover { background: rgba(26, 32, 54, 0.05); }
+.escolha-opcao:hover { background: rgba(143, 29, 51, 0.07); }
 
 .escolha-linha {
   display: flex;
@@ -102,6 +102,7 @@
 }
 
 .escolha-preco {
+  color: #8f1d33;
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.02em;

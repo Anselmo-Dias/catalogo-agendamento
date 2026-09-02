@@ -29,6 +29,9 @@
   /* icone do acento sobre o link escuro */
   --acc-icone: #e79cab;
 
+  /* superficie escura da marca: vinho quase preto, no lugar do azul-tinta */
+  --ink-surface: #2d0b15;
+
   --ok: #1a8a4a;
 
   /* Tipografia */
@@ -143,7 +146,7 @@ body::before {
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 50%;
-  background: #0d1222;
+  background: #2d0b15;
   border: 1px solid var(--acc-line);
   box-shadow: var(--sh-2);
 }
@@ -274,17 +277,17 @@ body::before {
 .link--primary .link__go { color: var(--on-acc-fade); }
 .link--primary:hover { box-shadow: var(--sh-acc); border-color: transparent; }
 
-/* Destaque secundário: catálogo (preto, alto contraste no tema claro) */
+/* Destaque secundário: catálogo (vinho escuro, alto contraste no tema claro) */
 .link--dark {
-  background: var(--ink);
-  border-color: var(--ink);
-  box-shadow: 0 12px 28px -14px rgba(13, 18, 34, 0.6);
+  background: var(--ink-surface);
+  border-color: var(--ink-surface);
+  box-shadow: 0 12px 28px -14px rgba(45, 11, 21, 0.6);
 }
 .link--dark .link__icon { background: rgba(255, 255, 255, 0.1); color: var(--acc-icone); }
 .link--dark .link__title { color: #fdfcfa; }
 .link--dark .link__sub { color: rgba(253, 252, 250, 0.55); }
 .link--dark .link__go { color: rgba(253, 252, 250, 0.5); }
-.link--dark:hover { border-color: var(--ink); }
+.link--dark:hover { border-color: var(--ink-surface); }
 
 /* Etiqueta opcional no canto do link */
 .link__badge {
@@ -355,8 +358,8 @@ body::before {
   width: calc((100% - var(--aba-gap) * 3) / 2);
   height: calc(100% - var(--aba-gap) * 2);
   border-radius: var(--r-full);
-  background: var(--ink);
-  box-shadow: 0 8px 18px -10px rgba(13, 18, 34, 0.75);
+  background: var(--ink-surface);
+  box-shadow: 0 8px 18px -10px rgba(45, 11, 21, 0.75);
   /* leve avanco no fim do trajeto: da peso ao movimento sem parecer mola */
   transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.44, 1);
 }
@@ -461,24 +464,24 @@ body::before {
   flex: none;
   min-height: 44px;
   padding: 0 1.05rem;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--ink-surface);
   border-radius: var(--r-full);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--ink-surface);
   cursor: pointer;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
               background 0.25s var(--ease), color 0.25s var(--ease);
 }
 .servico__btn svg { width: 15px; height: 15px; flex: none; }
-.servico__btn:hover { background: var(--ink); color: #fff; }
+.servico__btn:hover { background: var(--ink-surface); color: #fff; }
 .servico__btn:active { transform: scale(0.98); }
 
 /* Consultas com agenda: acao principal, preenchida */
 .servico__btn--cheio {
-  background: var(--ink);
+  background: var(--ink-surface);
   color: #fff;
-  box-shadow: 0 10px 22px -14px rgba(13, 18, 34, 0.8);
+  box-shadow: 0 10px 22px -14px rgba(45, 11, 21, 0.8);
 }
 .servico__btn--cheio:hover { box-shadow: var(--sh-2); }
 

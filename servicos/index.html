@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo de Serviços | RAMU Cartomância</title>
   <meta name="description" content="Catálogo de serviços da RAMU Cartomância: jogo de búzios, baralho pombogira e trabalhos espirituais, com valores e agendamento. Online e presencial em Aracaju – SE.">
-  <meta name="theme-color" content="#0d1222">
+  <meta name="theme-color" content="#2d0b15">
 
   <!-- Ícones da aba e do atalho na tela inicial -->
   <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
@@ -96,6 +96,7 @@
     .card:hover {
       transform: translateY(-4px);
       box-shadow: var(--sombra-alta);
+      border-color: var(--linha-vinho);
     }
 
     /* faixa de arte — 4:5 porque as fotos do atendimento são verticais */
@@ -103,20 +104,20 @@
       position: relative;
       aspect-ratio: 4 / 5;
       background:
-        radial-gradient(120% 100% at 50% 0%, var(--anil-600) 0%, var(--anil) 72%);
+        radial-gradient(120% 100% at 50% 0%, var(--vinho-600) 0%, var(--vinho) 72%);
       display: grid;
       place-items: center;
       color: var(--latao-claro);
-      border-bottom: 1px solid var(--latao);
+      border-bottom: 1px solid var(--linha-vinho);
       overflow: hidden;
     }
 
-    /* véu de anil: assenta fotos de temperaturas diferentes na mesma paleta */
+    /* véu de vinho: assenta fotos de temperaturas diferentes na mesma paleta */
     .card-arte::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(13, 18, 34, 0.38), rgba(13, 18, 34, 0) 58%);
+      background: linear-gradient(to top, var(--veu-vinho), rgba(45, 11, 21, 0) 58%);
       pointer-events: none;
     }
 
@@ -172,6 +173,7 @@
     .valores .rotulo { color: var(--tinta-suave); font-size: 0.63rem; }
 
     .valor {
+      color: var(--vinho-600);
       font-size: 1.22rem;
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -197,13 +199,13 @@
 </head>
 <body>
 
-  <!-- Ilustrações do catálogo (linha, latão sobre anil) -------------------- -->
+  <!-- Ilustrações do catálogo (linha, latão sobre vinho) ------------------- -->
   <svg width="0" height="0" aria-hidden="true" style="position:absolute">
     <!-- marca: búzio -->
     <symbol id="art-marca" viewBox="0 0 100 64">
       <ellipse cx="50" cy="32" rx="47" ry="30" fill="currentColor"/>
-      <path d="M10 32 Q50 25 90 32 Q50 39 10 32 Z" fill="#0d1222" opacity="0.92"/>
-      <g stroke="#0d1222" stroke-width="1.6" opacity="0.6" stroke-linecap="round">
+      <path d="M10 32 Q50 25 90 32 Q50 39 10 32 Z" fill="#2d0b15" opacity="0.92"/>
+      <g stroke="#2d0b15" stroke-width="1.6" opacity="0.6" stroke-linecap="round">
         <path d="M22 27.5v-4M32 26v-4.5M42 25.2v-4.6M52 25.2v-4.6M62 25.8v-4.5M72 27.2v-4"/>
         <path d="M22 36.5v4M32 38v4.5M42 38.8v4.6M52 38.8v4.6M62 38.2v4.5M72 36.8v4"/>
       </g>
